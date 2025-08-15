@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team VYRAL - Counter Strike 2</title>
+    <link rel="stylesheet" href="web.css">
+    <style>
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+            margin: 0;
+            padding: 0;
+            color: #23272f;
+            min-height: 100vh;
+        }
+        header {
+            background: #fff;
+            color: #181a1b;
+            padding: 2.5rem 0 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 32px 0 rgba(30, 33, 38, 0.07), 0 1.5px 0 #ececec;
+            position: relative;
+        }
+        header img.logo {
+            width: 110px;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(30,33,38,0.10);
+            margin-bottom: 1.2rem;
+            background: #f4f4f6;
+            object-fit: contain;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.7rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #23272f;
+            text-shadow: 0 2px 8px rgba(30,33,38,0.04);
+        }
+        nav {
+            margin-top: 1.5rem;
+        }
+        nav a {
+            color: #23272f;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 1.08rem;
+            letter-spacing: 0.5px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            transition: 
+                background 0.18s cubic-bezier(.4,0,.2,1),
+                color 0.18s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+        }
+        nav a:hover, nav a.active {
+            background: #23272f;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(30,33,38,0.08);
+            text-decoration: none;
+        }
+        main {
+            max-width: 900px;
+            margin: 2.8rem auto;
+            background: linear-gradient(120deg, #fff 80%, #f3f4f6 100%);
+            border-radius: 18px;
+            box-shadow: 0 8px 40px rgba(30,33,38,0.10), 0 1.5px 0 #ececec;
+            padding: 2.8rem 2.2rem;
+            border: 1.5px solid #ececec;
+        }
+        section {
+            margin-bottom: 2.8rem;
+            background: rgba(245,247,250,0.85);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(30,33,38,0.04);
+            padding: 1.5rem 1.2rem;
+        }
+        h2 {
+            color: #23272f;
+            margin-top: 0;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-left: 4px solid #23272f;
+            padding-left: 0.7rem;
+            background: linear-gradient(90deg, #f8fafc 80%, #ececec 100%);
+            border-radius: 6px;
+        }
+        .roster-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .roster-list li {
+            background: #fff;
+            margin-bottom: 1.1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(30,33,38,0.06);
+            padding: 1.1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            font-size: 1.08rem;
+            font-weight: 500;
+            color: #23272f;
+            transition: box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+        }
+        .roster-list li:hover {
+            box-shadow: 0 4px 16px rgba(30,33,38,0.13);
+            background: #f3f4f6;
+        }
+        .roster-list .flag {
+            font-size: 1.3rem;
+            margin-right: 0.7rem;
+        }
+        .roster-list a {
+            color: #23272f;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.18s cubic-bezier(.4,0,.2,1);
+        }
+        .roster-list a:hover {
+            color: #181a1b;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 1.7rem 0;
+            background: linear-gradient(90deg, #f3f4f6 60%, #fff 100%);
+            color: #6b7280;
+            font-size: 1.05rem;
+            margin-top: 3.5rem;
+            border-top: 1.5px solid #ececec;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 700px) {
+            main {
+                padding: 1.3rem 0.6rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            section {
+                padding: 1rem 0.5rem;
+            }
+            .roster-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+                font-size: 0.98rem;
+                padding: 0.8rem 0.7rem;
+            }
+        }
+        /* --- DARK THEME SUPPORT --- */
+        @media (prefers-color-scheme: dark), html.dark {
+            body {
+                background: linear-gradient(135deg, #181a1b 0%, #23272f 100%);
+                color: #f3f4f6;
+            }
+            header {
+                background: #23272f;
+                color: #f3f4f6;
+                box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 0 #23272f;
+            }
+            header img.logo {
+                background: #23272f;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            }
+            header h1 {
+                color: #f3f4f6;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            }
+            nav a {
+                color: #f3f4f6;
+                background: transparent;
+            }
+            nav a:hover, nav a.active {
+                background: #f3f4f6;
+                color: #23272f;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            }
+            main {
+                background: linear-gradient(120deg, #23272f 80%, #181a1b 100%);
+                box-shadow: 0 8px 40px rgba(0,0,0,0.25), 0 1.5px 0 #23272f;
+                border: 1.5px solid #23272f;
+            }
+            section {
+                background: rgba(30,33,38,0.85);
+                box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            }
+            h2 {
+                color: #f3f4f6;
+                border-left: 4px solid #f3f4f6;
+                background: linear-gradient(90deg, #23272f 80%, #181a1b 100%);
+            }
+            .roster-list li {
+                background: #23272f;
+                color: #f3f4f6;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            }
+            .roster-list li:hover {
+                background: #181a1b;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+            }
+            .roster-list a {
+                color: #a5b4fc;
+            }
+            .roster-list a:hover {
+                color: #fff;
+            }
+            footer {
+                background: linear-gradient(90deg, #23272f 60%, #181a1b 100%);
+                color: #a1a1aa;
+                border-top: 1.5px solid #23272f;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="vyral.png" alt="Team VYRAL Logo" class="logo">
+        <h1>Team VYRAL</h1>
+        <nav>
+            <a href="#about" class="active">About</a>
+            <a href="#roster">Roster</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                <strong>Team VYRAL</strong> is a European Counter Strike 2 team, dedicated to excellence and teamwork. We strive for greatness in every match, representing the highest standards of competitive play and sportsmanship.
+            </p>
+        </section>
+        <section id="roster">
+            <h2>European Roster - Team VYRAL</h2>
+            <ul class="roster-list">
+                <li>
+                    <span class="flag">🇸🇰</span>
+                    <span><strong>älex</strong> – In-game leader, support rifler</span>
+                    <a href="https://steamcommunity.com/id/aleexx17z" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇭🇺</span>
+                    <span><strong>lazydh</strong> – Anchor rifler</span>
+                    <a href="https://steamcommunity.com/id/lxzlxw" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇱🇻</span>
+                    <span><strong>Ralfixss</strong> – Entry fragger</span>
+                    <a href="https://steamcommunity.com/profiles/76561199873588232/" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇱🇻</span>
+                    <span><strong>eksis</strong> – Lurker</span>
+                    <a href="https://steamcommunity.com/id/lL0VEBO0BS/" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇭🇺🇵🇱</span>
+                    <span><strong>Bazsa</strong> – AWPer</span>
+                    <a href="https://steamcommunity.com/id/tronfosztok" target="_blank" rel="noopener">Steam</a>
+                </li>
+            </ul>
+            <h2 style="margin-top:2.5rem;">European Roster - Team VYRAL EXT</h2>
+            <ul class="roster-list">
+                <li>
+                    <span class="flag">🇸🇰</span>
+                    <span><strong>Sakkury</strong> – AWPer</span>
+                    <a href="https://steamcommunity.com/profiles/76561199589796223" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇸🇰</span>
+                    <span><strong>Snoopy</strong> – Lurker</span>
+                    <a href="https://steamcommunity.com/profiles/76561199317047404/" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇧🇬</span>
+                    <span><strong>Drain</strong> – Entry fragger, rifler</span>
+                    <a href="https://steamcommunity.com/id/doubledrain/" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇫🇮</span>
+                    <span><strong>Pato</strong> – Support rifler</span>
+                    <a href="https://steamcommunity.com/profiles/76561198954775649/" target="_blank" rel="noopener">Steam</a>
+                </li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                For inquiries, scrims, or business: <a href="mailto:info@teamvyral.com">info@teamvyral.com</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2024 Team VYRAL. All rights reserved.
+    </footer>
+</body>
+</html>
