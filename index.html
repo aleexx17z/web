@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team VYRAL - Counter Strike 2</title>
     <link rel="stylesheet" href="web.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* --- BEGIN: DUPLICATE OF web.css FOR INLINE STYLES --- */
         body {
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
@@ -13,6 +17,7 @@
             padding: 0;
             color: #23272f;
             min-height: 100vh;
+            scroll-behavior: smooth;
         }
         header {
             background: #fff;
@@ -30,6 +35,10 @@
             margin-bottom: 1.2rem;
             background: #f4f4f6;
             object-fit: contain;
+            transition: transform 0.18s cubic-bezier(.4,0,.2,1);
+        }
+        header img.logo:hover {
+            transform: scale(1.07) rotate(-3deg);
         }
         header h1 {
             margin: 0;
@@ -38,6 +47,14 @@
             font-weight: 700;
             color: #23272f;
             text-shadow: 0 2px 8px rgba(30,33,38,0.04);
+        }
+        .tagline {
+            font-size: 1.15rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
         nav {
             margin-top: 1.5rem;
@@ -61,6 +78,21 @@
             color: #fff;
             box-shadow: 0 2px 8px rgba(30,33,38,0.08);
             text-decoration: none;
+        }
+        .social-links {
+            margin-top: 1.2rem;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 0.5rem;
+            color: #23272f;
+            font-size: 1.35rem;
+            transition: color 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+            vertical-align: middle;
+        }
+        .social-links a:hover {
+            color: #2563eb;
+            transform: translateY(-2px) scale(1.13);
         }
         main {
             max-width: 900px;
@@ -106,7 +138,7 @@
             font-size: 1.08rem;
             font-weight: 500;
             color: #23272f;
-            transition: box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+            transition: box-shadow 0.18s cubic-bezier(.4,0,.2,1), background 0.18s cubic-bezier(.4,0,.2,1);
         }
         .roster-list li:hover {
             box-shadow: 0 4px 16px rgba(30,33,38,0.13);
@@ -126,6 +158,117 @@
             color: #181a1b;
             text-decoration: none;
         }
+        .player-role {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 0.92em;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 0.13em 0.6em;
+            margin-left: 0.5em;
+            letter-spacing: 0.2px;
+        }
+        .roster-list li .player-role {
+            margin-left: 0.5em;
+        }
+        .roster-list li .player-role.awper {
+            background: #fef08a;
+            color: #b45309;
+        }
+        .roster-list li .player-role.igl {
+            background: #fca5a5;
+            color: #991b1b;
+        }
+        .roster-list li .player-role.lurker {
+            background: #bbf7d0;
+            color: #166534;
+        }
+        .roster-list li .player-role.support {
+            background: #bae6fd;
+            color: #0369a1;
+        }
+        .roster-list li .player-role.entry {
+            background: #fcd34d;
+            color: #92400e;
+        }
+        .roster-list li .player-role.anchor {
+            background: #ddd6fe;
+            color: #6d28d9;
+        }
+        .roster-list li .player-role.rifler {
+            background: #fca5a5;
+            color: #991b1b;
+        }
+        .roster-list li .player-role.fragger {
+            background: #fcd34d;
+            color: #92400e;
+        }
+        .trophy-section {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .trophy-section h2 {
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+        .trophies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .trophy {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(30,33,38,0.08);
+            padding: 1.1rem 1.5rem;
+            min-width: 180px;
+            text-align: center;
+            transition: box-shadow 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+        }
+        .trophy:hover {
+            box-shadow: 0 4px 16px rgba(30,33,38,0.13);
+            transform: translateY(-3px) scale(1.04);
+        }
+        .trophy .trophy-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .trophy .trophy-title {
+            font-weight: 700;
+            font-size: 1.08rem;
+            margin-bottom: 0.2rem;
+        }
+        .trophy .trophy-desc {
+            color: #6b7280;
+            font-size: 0.98rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2.2rem;
+            right: 2.2rem;
+            background: #23272f;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.7rem;
+            box-shadow: 0 2px 8px rgba(30,33,38,0.13);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: background 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+        }
+        .back-to-top:hover {
+            background: #2563eb;
+            transform: scale(1.08);
+        }
         footer {
             text-align: center;
             padding: 1.7rem 0;
@@ -135,6 +278,13 @@
             margin-top: 3.5rem;
             border-top: 1.5px solid #ececec;
             letter-spacing: 0.5px;
+        }
+        /* --- NEW: Responsive logo for mobile --- */
+        @media (max-width: 500px) {
+            header img.logo {
+                width: 70px;
+                border-radius: 12px;
+            }
         }
         @media (max-width: 700px) {
             main {
@@ -152,6 +302,21 @@
                 gap: 0.3rem;
                 font-size: 0.98rem;
                 padding: 0.8rem 0.7rem;
+            }
+            .trophies {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .trophy {
+                min-width: unset;
+                width: 100%;
+            }
+            .back-to-top {
+                right: 1rem;
+                bottom: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
             }
         }
         /* --- DARK THEME SUPPORT --- */
@@ -173,6 +338,9 @@
                 color: #f3f4f6;
                 text-shadow: 0 2px 8px rgba(0,0,0,0.18);
             }
+            .tagline {
+                color: #a1a1aa;
+            }
             nav a {
                 color: #f3f4f6;
                 background: transparent;
@@ -181,6 +349,12 @@
                 background: #f3f4f6;
                 color: #23272f;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            }
+            .social-links a {
+                color: #f3f4f6;
+            }
+            .social-links a:hover {
+                color: #60a5fa;
             }
             main {
                 background: linear-gradient(120deg, #23272f 80%, #181a1b 100%);
@@ -211,23 +385,86 @@
             .roster-list a:hover {
                 color: #fff;
             }
+            .player-role {
+                background: #23272f;
+                color: #a5b4fc;
+            }
+            .roster-list li .player-role.awper {
+                background: #facc15;
+                color: #23272f;
+            }
+            .roster-list li .player-role.igl {
+                background: #ef4444;
+                color: #fff;
+            }
+            .roster-list li .player-role.lurker {
+                background: #22d3ee;
+                color: #134e4a;
+            }
+            .roster-list li .player-role.support {
+                background: #38bdf8;
+                color: #fff;
+            }
+            .roster-list li .player-role.entry {
+                background: #fbbf24;
+                color: #23272f;
+            }
+            .roster-list li .player-role.anchor {
+                background: #a78bfa;
+                color: #23272f;
+            }
+            .roster-list li .player-role.rifler {
+                background: #f87171;
+                color: #fff;
+            }
+            .roster-list li .player-role.fragger {
+                background: #fde68a;
+                color: #23272f;
+            }
+            .trophy {
+                background: #23272f;
+                color: #f3f4f6;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            }
+            .trophy .trophy-desc {
+                color: #a1a1aa;
+            }
+            .back-to-top {
+                background: #f3f4f6;
+                color: #23272f;
+            }
+            .back-to-top:hover {
+                background: #2563eb;
+                color: #fff;
+            }
             footer {
                 background: linear-gradient(90deg, #23272f 60%, #181a1b 100%);
                 color: #a1a1aa;
                 border-top: 1.5px solid #23272f;
             }
         }
+        /* --- END: DUPLICATE OF web.css FOR INLINE STYLES --- */
     </style>
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/2b7e2e2e2e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <img src="vyral.png" alt="Team VYRAL Logo" class="logo">
         <h1>Team VYRAL</h1>
+        <div class="tagline">European Counter Strike 2 Esports Team</div>
         <nav>
             <a href="#about" class="active">About</a>
             <a href="#roster">Roster</a>
+            <a href="#trophies">Trophies</a>
             <a href="#contact">Contact</a>
         </nav>
+        <div class="social-links">
+            <a href="https://twitter.com/teamvyral" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://twitch.tv/teamvyral" target="_blank" rel="noopener" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+            <a href="https://discord.gg/yourdiscord" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://steamcommunity.com/groups/teamvyral" target="_blank" rel="noopener" aria-label="Steam"><i class="fab fa-steam"></i></a>
+        </div>
     </header>
     <main>
         <section id="about">
@@ -235,33 +472,39 @@
             <p>
                 <strong>Team VYRAL</strong> is a European Counter Strike 2 team, dedicated to excellence and teamwork. We strive for greatness in every match, representing the highest standards of competitive play and sportsmanship.
             </p>
+            <ul style="margin-top:1.2rem; color:#6b7280; font-size:1.05rem; line-height:1.7;">
+                <li>Founded: <strong>2023</strong></li>
+                <li>Region: <strong>Europe</strong></li>
+                <li>Game: <strong>Counter Strike 2</strong></li>
+                <li>Discord: <a href="https://discord.gg/yourdiscord" target="_blank" rel="noopener">Join our community</a></li>
+            </ul>
         </section>
         <section id="roster">
             <h2>European Roster - Team VYRAL</h2>
             <ul class="roster-list">
                 <li>
                     <span class="flag">🇸🇰</span>
-                    <span><strong>älex</strong> – In-game leader, support rifler</span>
+                    <span><strong>älex</strong> <span class="player-role igl">IGL</span> <span class="player-role support">Support</span> <span class="player-role rifler">Rifler</span></span>
                     <a href="https://steamcommunity.com/id/aleexx17z" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇭🇺</span>
-                    <span><strong>lazydh</strong> – Anchor rifler</span>
+                    <span><strong>lazydh</strong> <span class="player-role anchor">Anchor</span> <span class="player-role rifler">Rifler</span></span>
                     <a href="https://steamcommunity.com/id/lxzlxw" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇱🇻</span>
-                    <span><strong>Ralfixss</strong> – Entry fragger</span>
+                    <span><strong>Ralfixss</strong> <span class="player-role entry">Entry</span> <span class="player-role fragger">Fragger</span></span>
                     <a href="https://steamcommunity.com/profiles/76561199873588232/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇱🇻</span>
-                    <span><strong>eksis</strong> – Lurker</span>
+                    <span><strong>eksis</strong> <span class="player-role lurker">Lurker</span></span>
                     <a href="https://steamcommunity.com/id/lL0VEBO0BS/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇭🇺🇵🇱</span>
-                    <span><strong>Bazsa</strong> – AWPer</span>
+                    <span><strong>Bazsa</strong> <span class="player-role awper">AWPer</span></span>
                     <a href="https://steamcommunity.com/id/tronfosztok" target="_blank" rel="noopener">Steam</a>
                 </li>
             </ul>
@@ -269,35 +512,98 @@
             <ul class="roster-list">
                 <li>
                     <span class="flag">🇸🇰</span>
-                    <span><strong>Sakkury</strong> – AWPer</span>
+                    <span><strong>Sakkury</strong> <span class="player-role awper">AWPer</span></span>
                     <a href="https://steamcommunity.com/profiles/76561199589796223" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇸🇰</span>
-                    <span><strong>Snoopy</strong> – Lurker</span>
+                    <span><strong>Snoopy</strong> <span class="player-role lurker">Lurker</span></span>
                     <a href="https://steamcommunity.com/profiles/76561199317047404/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇧🇬</span>
-                    <span><strong>Drain</strong> – Entry fragger, rifler</span>
+                    <span><strong>Drain</strong> <span class="player-role entry">Entry</span> <span class="player-role rifler">Rifler</span></span>
                     <a href="https://steamcommunity.com/id/doubledrain/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇫🇮</span>
-                    <span><strong>Pato</strong> – Support rifler</span>
+                    <span><strong>Pato</strong> <span class="player-role support">Support</span> <span class="player-role rifler">Rifler</span></span>
                     <a href="https://steamcommunity.com/profiles/76561198954775649/" target="_blank" rel="noopener">Steam</a>
                 </li>
             </ul>
+        </section>
+        <section id="trophies" class="trophy-section">
+            <h2><i class="fas fa-trophy" style="color:#fbbf24;"></i> Achievements & Trophies</h2>
+            <div class="trophies">
+                <div class="trophy">
+                    <span class="trophy-icon" style="color:#fbbf24;"><i class="fas fa-trophy"></i></span>
+                    <div class="trophy-title">1st Place - EU Community Cup</div>
+                    <div class="trophy-desc">Spring 2024</div>
+                </div>
+                <div class="trophy">
+                    <span class="trophy-icon" style="color:#a3e635;"><i class="fas fa-medal"></i></span>
+                    <div class="trophy-title">2nd Place - Baltic Open</div>
+                    <div class="trophy-desc">Winter 2023</div>
+                </div>
+                <div class="trophy">
+                    <span class="trophy-icon" style="color:#60a5fa;"><i class="fas fa-award"></i></span>
+                    <div class="trophy-title">Top 4 - VYRAL Invitational</div>
+                    <div class="trophy-desc">Summer 2023</div>
+                </div>
+                <div class="trophy">
+                    <span class="trophy-icon" style="color:#f472b6;"><i class="fas fa-star"></i></span>
+                    <div class="trophy-title">Best Team Spirit</div>
+                    <div class="trophy-desc">2023</div>
+                </div>
+            </div>
         </section>
         <section id="contact">
             <h2>Contact</h2>
             <p>
                 For inquiries, scrims, or business: <a href="mailto:info@teamvyral.com">info@teamvyral.com</a>
             </p>
+            <p>
+                <strong>Follow us:</strong>
+                <a href="https://twitter.com/teamvyral" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://twitch.tv/teamvyral" target="_blank" rel="noopener" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+                <a href="https://discord.gg/yourdiscord" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://steamcommunity.com/groups/teamvyral" target="_blank" rel="noopener" aria-label="Steam"><i class="fab fa-steam"></i></a>
+            </p>
         </section>
     </main>
+    <button class="back-to-top" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <footer>
-        &copy; 2024 Team VYRAL. All rights reserved.
+        &copy; 2024 Team VYRAL. All rights reserved.<br>
+        <span style="font-size:0.98em; color:#a1a1aa;">Website by Team VYRAL staff</span>
     </footer>
+    <script>
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
