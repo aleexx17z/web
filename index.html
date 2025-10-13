@@ -75,7 +75,6 @@
             box-shadow: 0 2px 8px rgba(30,33,38,0.08);
             text-decoration: none;
         }
-        /* Remove outline from all links for all states (normal and forced colors) */
         a:focus {
             outline: none !important;
             box-shadow: none !important;
@@ -245,13 +244,11 @@
                 background: #181a1b;
             }
         }
-        /* Hide the JS-only button unless override shown by user agent or CSS */
         .back-to-top {
             display: none;
         }
     </style>
     <script>
-      // Redirect from teamvyral.ct.ws to www.teamvyral.ct.ws
       if (
           location.hostname.replace(/^www\./, '') === 'teamvyral.ct.ws' &&
           !location.hostname.startsWith('www.')
