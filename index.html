@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team VYRAL - Counter Strike 2</title>
+    <link rel="icon" type="image/png" href="vyral.png">
     <link rel="stylesheet" href="web.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- BEGIN: DUPLICATE OF web.css FOR INLINE STYLES --- */
+        /* --- BEGIN: DUPLICATE OF web.css FOR INLINE STYLES, INCLUDING DARK MODE FULLY --- */
         body {
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
@@ -172,114 +173,33 @@
         .roster-list li .player-role {
             margin-left: 0.5em;
         }
-        .roster-list li .player-role.awper {
+        /* Custom roles for new naming (NO "rifler" generic role) */
+        .player-role.awper {
             background: #fef08a;
             color: #b45309;
         }
-        .roster-list li .player-role.igl {
-            background: #fca5a5;
-            color: #991b1b;
+        .player-role.entry-fragger {
+            background: #fcd34d;
+            color: #92400e;
         }
-        .roster-list li .player-role.lurker {
+        .player-role.lurker-rifler {
             background: #bbf7d0;
             color: #166534;
         }
-        .roster-list li .player-role.support {
+        .player-role.support-rifler {
             background: #bae6fd;
             color: #0369a1;
         }
-        .roster-list li .player-role.entry {
-            background: #fcd34d;
-            color: #92400e;
-        }
-        .roster-list li .player-role.anchor {
+        .player-role.anchor-rifler {
             background: #ddd6fe;
             color: #6d28d9;
         }
-        .roster-list li .player-role.rifler {
+        .player-role.igl {
             background: #fca5a5;
             color: #991b1b;
         }
-        .roster-list li .player-role.fragger {
-            background: #fcd34d;
-            color: #92400e;
-        }
-        .trophy-section {
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-        .trophy-section h2 {
-            display: inline-block;
-            margin-bottom: 1.2rem;
-        }
-        .trophies {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-        .trophy {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(30,33,38,0.08);
-            padding: 1.1rem 1.5rem;
-            min-width: 180px;
-            text-align: center;
-            transition: box-shadow 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
-        }
-        .trophy:hover {
-            box-shadow: 0 4px 16px rgba(30,33,38,0.13);
-            transform: translateY(-3px) scale(1.04);
-        }
-        .trophy .trophy-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .trophy .trophy-title {
-            font-weight: 700;
-            font-size: 1.08rem;
-            margin-bottom: 0.2rem;
-        }
-        .trophy .trophy-desc {
-            color: #6b7280;
-            font-size: 0.98rem;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 2.2rem;
-            right: 2.2rem;
-            background: #23272f;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 1.7rem;
-            box-shadow: 0 2px 8px rgba(30,33,38,0.13);
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            transition: background 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
-        }
-        .back-to-top:hover {
-            background: #2563eb;
-            transform: scale(1.08);
-        }
-        footer {
-            text-align: center;
-            padding: 1.7rem 0;
-            background: linear-gradient(90deg, #f3f4f6 60%, #fff 100%);
-            color: #6b7280;
-            font-size: 1.05rem;
-            margin-top: 3.5rem;
-            border-top: 1.5px solid #ececec;
-            letter-spacing: 0.5px;
-        }
-        /* --- NEW: Responsive logo for mobile --- */
+
+        /* Responsive design (as before) */
         @media (max-width: 500px) {
             header img.logo {
                 width: 70px;
@@ -319,130 +239,110 @@
                 font-size: 1.3rem;
             }
         }
-        /* --- DARK THEME SUPPORT --- */
+
+        /* --- DARK MODE SECTION --- */
         @media (prefers-color-scheme: dark), html.dark {
             body {
                 background: linear-gradient(135deg, #181a1b 0%, #23272f 100%);
                 color: #f3f4f6;
             }
             header {
-                background: #23272f;
+                background: #1c1f23;
                 color: #f3f4f6;
-                box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 0 #23272f;
+                box-shadow: 0 4px 32px 0 rgba(16, 17, 19, 0.19), 0 1.5px 0 #23272f;
             }
             header img.logo {
                 background: #23272f;
-                box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+                box-shadow: 0 4px 24px rgba(30,33,38,0.21);
             }
             header h1 {
                 color: #f3f4f6;
-                text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+                text-shadow: 0 2px 8px rgba(0,0,0,0.12);
             }
             .tagline {
-                color: #a1a1aa;
+                color: #bfbfc6;
             }
             nav a {
-                color: #f3f4f6;
-                background: transparent;
+                color: #e0e7ef;
+                background: none;
             }
             nav a:hover, nav a.active {
-                background: #f3f4f6;
-                color: #23272f;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+                background: #282c34;
+                color: #fff;
+                box-shadow: 0 2px 8px rgba(10,11,14,0.18);
             }
             .social-links a {
-                color: #f3f4f6;
+                color: #e0e7ef;
             }
             .social-links a:hover {
-                color: #60a5fa;
+                color: #93c5fd;
             }
             main {
-                background: linear-gradient(120deg, #23272f 80%, #181a1b 100%);
-                box-shadow: 0 8px 40px rgba(0,0,0,0.25), 0 1.5px 0 #23272f;
+                background: linear-gradient(120deg, #1c1f23 80%, #23272f 100%);
                 border: 1.5px solid #23272f;
+                box-shadow: 0 8px 40px rgba(16,18,24,0.26), 0 1.5px 0 #23272f;
             }
             section {
-                background: rgba(30,33,38,0.85);
-                box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+                background: rgba(30, 33, 38, 0.96);
+                box-shadow: 0 2px 12px rgba(10, 12, 16, 0.08);
             }
             h2 {
                 color: #f3f4f6;
-                border-left: 4px solid #f3f4f6;
-                background: linear-gradient(90deg, #23272f 80%, #181a1b 100%);
+                background: linear-gradient(90deg, #23272f 80%, #1c1f23 100%);
+                border-left: 4px solid #fff;
             }
             .roster-list li {
-                background: #23272f;
+                background: #282c34;
                 color: #f3f4f6;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+                box-shadow: 0 2px 8px rgba(10,12,16,0.24);
             }
             .roster-list li:hover {
-                background: #181a1b;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+                background: #23272f;
+                box-shadow: 0 4px 16px rgba(10,12,16,0.37);
+            }
+            .roster-list .flag {
+                color: #fff;
             }
             .roster-list a {
-                color: #a5b4fc;
+                color: #fff;
             }
             .roster-list a:hover {
                 color: #fff;
             }
             .player-role {
                 background: #23272f;
-                color: #a5b4fc;
+                color: #e0e7ff;
             }
-            .roster-list li .player-role.awper {
-                background: #facc15;
-                color: #23272f;
+            .player-role.awper {
+                background: #a16207;
+                color: #fef3c7;
             }
-            .roster-list li .player-role.igl {
-                background: #ef4444;
-                color: #fff;
+            .player-role.entry-fragger {
+                background: #92400e;
+                color: #fcd34d;
             }
-            .roster-list li .player-role.lurker {
-                background: #22d3ee;
-                color: #134e4a;
+            .player-role.lurker-rifler {
+                background: #166534;
+                color: #bcf4d5;
             }
-            .roster-list li .player-role.support {
-                background: #38bdf8;
-                color: #fff;
+            .player-role.support-rifler {
+                background: #0369a1;
+                color: #a5f3fc;
             }
-            .roster-list li .player-role.entry {
-                background: #fbbf24;
-                color: #23272f;
+            .player-role.anchor-rifler {
+                background: #6d28d9;
+                color: #e9d5ff;
             }
-            .roster-list li .player-role.anchor {
-                background: #a78bfa;
-                color: #23272f;
-            }
-            .roster-list li .player-role.rifler {
-                background: #f87171;
-                color: #fff;
-            }
-            .roster-list li .player-role.fragger {
-                background: #fde68a;
-                color: #23272f;
-            }
-            .trophy {
-                background: #23272f;
-                color: #f3f4f6;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-            }
-            .trophy .trophy-desc {
-                color: #a1a1aa;
-            }
-            .back-to-top {
-                background: #f3f4f6;
-                color: #23272f;
-            }
-            .back-to-top:hover {
-                background: #2563eb;
-                color: #fff;
+            .player-role.igl {
+                background: #991b1b;
+                color: #fecaca;
             }
             footer {
-                background: linear-gradient(90deg, #23272f 60%, #181a1b 100%);
                 color: #a1a1aa;
-                border-top: 1.5px solid #23272f;
+                background: #181a1b;
             }
         }
+        /* --- END: DARK MODE --- */
         /* --- END: DUPLICATE OF web.css FOR INLINE STYLES --- */
     </style>
     <!-- Font Awesome for social icons -->
@@ -464,6 +364,7 @@
             <a href="https://twitch.tv/teamvyral" target="_blank" rel="noopener" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
             <a href="https://discord.gg/DRuXSrGD4T" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
             <a href="https://steamcommunity.com/groups/teamvyral" target="_blank" rel="noopener" aria-label="Steam"><i class="fab fa-steam"></i></a>
+            <!-- Add Instagram and TikTok icons to header if you want them globally; for now, DO NOT add here as per instructions -->
         </div>
     </header>
     <main>
@@ -484,51 +385,99 @@
             <ul class="roster-list">
                 <li>
                     <span class="flag">🇸🇰</span>
-                    <span><strong>älex</strong> <span class="player-role igl">IGL</span> <span class="player-role support">Support</span> <span class="player-role rifler">Rifler</span></span>
+                    <span>
+                        <strong>älex</strong>
+                        <span class="player-role igl">In-game leader</span>
+                        <span class="player-role support-rifler">Support rifler</span>
+                    </span>
                     <a href="https://steamcommunity.com/id/aleexx17z" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇭🇺</span>
-                    <span><strong>lazydh</strong> <span class="player-role anchor">Anchor</span> <span class="player-role rifler">Rifler</span></span>
+                    <span>
+                        <strong>lazydh</strong>
+                        <span class="player-role anchor-rifler">Anchor rifler</span>
+                    </span>
                     <a href="https://steamcommunity.com/id/lxzlxw" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
-                    <span class="flag">🇱🇻</span>
-                    <span><strong>Ralfixss</strong> <span class="player-role entry">Entry</span> <span class="player-role fragger">Fragger</span></span>
-                    <a href="https://steamcommunity.com/profiles/76561199873588232/" target="_blank" rel="noopener">Steam</a>
+                    <span class="flag">🇪🇬</span>
+                    <span>
+                        <strong>Tyson808</strong>
+                        <span class="player-role lurker-rifler">Lurker rifler</span>
+                    </span>
+                    <a href="https://steamcommunity.com/profiles/76561199691299104/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
-                    <span class="flag">🇱🇻</span>
-                    <span><strong>eksis</strong> <span class="player-role lurker">Lurker</span></span>
-                    <a href="https://steamcommunity.com/id/lL0VEBO0BS/" target="_blank" rel="noopener">Steam</a>
+                    <span class="flag">🇩🇪</span>
+                    <span>
+                        <strong>ApxThe0</strong>
+                        <span class="player-role entry-fragger">Entry fragger</span>
+                    </span>
+                    <a href="https://steamcommunity.com/id/apothekertheo/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇭🇺🇵🇱</span>
-                    <span><strong>Bazsa</strong> <span class="player-role awper">AWPer</span></span>
+                    <span>
+                        <strong>Bazsa</strong>
+                        <span class="player-role awper">AWPer</span>
+                    </span>
                     <a href="https://steamcommunity.com/id/tronfosztok" target="_blank" rel="noopener">Steam</a>
                 </li>
             </ul>
+            <h3 style="margin-top:2.2rem; margin-bottom:0.5rem;">Sub Players</h3>
+            <ul class="roster-list">
+                <li>
+                    <span class="flag">🇸🇪</span>
+                    <span>
+                        <strong>Lillen</strong>
+                        <span class="player-role lurker-rifler">Lurker rifler</span>
+                    </span>
+                    <a href="https://steamcommunity.com/profiles/76561199637545104/" target="_blank" rel="noopener">Steam</a>
+                </li>
+            </ul>
+
             <h2 style="margin-top:2.5rem;">European Roster - Team VYRAL EXT</h2>
             <ul class="roster-list">
                 <li>
-                    <span class="flag">🇸🇰</span>
-                    <span><strong>Sakkury</strong> <span class="player-role awper">AWPer</span></span>
-                    <a href="https://steamcommunity.com/profiles/76561199589796223" target="_blank" rel="noopener">Steam</a>
+                    <span class="flag">🇵🇱</span>
+                    <span>
+                        <strong>ih88</strong>
+                        <span class="player-role anchor-rifler">Anchor rifler</span>
+                    </span>
+                    <a href="https://steamcommunity.com/id/ih88/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
                     <span class="flag">🇸🇰</span>
-                    <span><strong>Snoopy</strong> <span class="player-role lurker">Lurker</span></span>
+                    <span>
+                        <strong>Snoopy</strong>
+                        <span class="player-role lurker-rifler">Lurker rifler</span>
+                    </span>
                     <a href="https://steamcommunity.com/profiles/76561199317047404/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
-                    <span class="flag">🇧🇬</span>
-                    <span><strong>Drain</strong> <span class="player-role entry">Entry</span> <span class="player-role rifler">Rifler</span></span>
-                    <a href="https://steamcommunity.com/id/doubledrain/" target="_blank" rel="noopener">Steam</a>
+                    <span class="flag">🇺🇸</span>
+                    <span>
+                        <strong>Quark</strong>
+                        <span class="player-role support-rifler">Support rifler</span>
+                    </span>
+                    <a href="https://steamcommunity.com/id/4ZKjNRH3dipfKZDPCQiMshnB71b3SRL7/" target="_blank" rel="noopener">Steam</a>
                 </li>
                 <li>
-                    <span class="flag">🇫🇮</span>
-                    <span><strong>Pato</strong> <span class="player-role support">Support</span> <span class="player-role rifler">Rifler</span></span>
-                    <a href="https://steamcommunity.com/profiles/76561198954775649/" target="_blank" rel="noopener">Steam</a>
+                    <span class="flag">🇳🇴🇷🇺</span>
+                    <span>
+                        <strong>Immortality</strong>
+                        <span class="player-role entry-fragger">Entry fragger</span>
+                    </span>
+                    <a href="https://steamcommunity.com/profiles/76561199800421562" target="_blank" rel="noopener">Steam</a>
+                </li>
+                <li>
+                    <span class="flag">🇸🇰</span>
+                    <span>
+                        <strong>Sakkury</strong>
+                        <span class="player-role awper">AWPer</span>
+                    </span>
+                    <a href="https://steamcommunity.com/profiles/76561199589796223" target="_blank" rel="noopener">Steam</a>
                 </li>
             </ul>
         </section>
@@ -545,13 +494,23 @@
             <p>
                 For inquiries, scrims, or business: <a href="mailto:info@teamvyral.com">info@teamvyral.com</a>
             </p>
-            <p>
+            <div>
                 <strong>Follow us:</strong>
-                <a href="https://twitter.com/teamvyral" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://twitch.tv/teamvyral" target="_blank" rel="noopener" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
-                <a href="https://discord.gg/DRuXSrGD4T" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://steamcommunity.com/groups/teamvyral" target="_blank" rel="noopener" aria-label="Steam"><i class="fab fa-steam"></i></a>
-            </p>
+                <ul class="social-links" style="list-style:none; padding-left:0; margin:0.6em 0;">
+                    <li style="margin-bottom:0.3em;">
+                        <a href="https://discord.gg/DRuXSrGD4T" target="_blank" rel="noopener" aria-label="Discord" style="color:#2563eb; text-decoration:none;">Discord</a>
+                    </li>
+                    <li style="margin-bottom:0.3em;">
+                        <a href="https://steamcommunity.com/groups/teamvyral" target="_blank" rel="noopener" aria-label="Steam" style="color:#2563eb; text-decoration:none;">Steam</a>
+                    </li>
+                    <li style="margin-bottom:0.3em;">
+                        <a href="https://www.instagram.com/teamvyralcs" target="_blank" rel="noopener" aria-label="Instagram" style="color:#2563eb; text-decoration:none;">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@teamvyralcs" target="_blank" rel="noopener" aria-label="TikTok" style="color:#2563eb; text-decoration:none;">TikTok</a>
+                    </li>
+                </ul>
+            </div>
         </section>
     </main>
     <button class="back-to-top" id="backToTopBtn" title="Back to top" aria-label="Back to top">
